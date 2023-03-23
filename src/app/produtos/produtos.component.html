@@ -1,0 +1,33 @@
+<!--Seção sobre a lista de produtos-->
+<section class="product-list">
+
+  <!--Card sobre a lista de produtos, vai ler "produto" de "produtos", ou seja vai ver qual é o produto que você quer dentro da lista de prodtos-->
+  <div class="product-list__card" *ngFor="let produto of produtos">
+
+    <!--A imagem será um link, para mostra o produto, e dá mais detalhes sobre ele, como nome, descrição, etc...-->
+    <a routerLink="/produtos/{{ produto.id }}" class="product-list__link">
+    <img [src]="produto.imagem" />
+
+    <!--Chama o objeto "produto", pedindo a sua "descição"-->
+    <h2 class="product-item__name">
+      {{ produto.descricao }}
+    </h2>
+
+    <!--Chama o objeto "produto", pedindo a seu "preço", e faz uma formatação  para ficar em valores "reais, brasileiro"-->
+    <p class="product-item__price">
+      {{ produto.preco | currency: "BRL" }}
+    </p>
+
+    <!--Chama o objeto "produto", pedindo a sua "desciçãoPreço"-->
+    <p class="product-item__price-description">
+      {{ produto.descricaoPreco }}
+    </p>
+
+    <!--Cria um botão, que ao clicar vai realizar a compra-->
+    <button class="product-item__buy-button" type="button">Comprar</button>
+  </a>
+
+  </div>
+</section>
+
+
